@@ -1,5 +1,5 @@
 from typing import List
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from app.schemas.recipe import RecipeResponse
 from app.schemas.ingredient import IngredientResponse
 
@@ -17,5 +17,4 @@ class RecipeMatchResponse(BaseModel):
     has_all_ingredients: bool
     missing_ingredients: List[MissingIngredient]
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)

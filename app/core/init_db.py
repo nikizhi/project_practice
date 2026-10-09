@@ -2,11 +2,12 @@ import os
 from sqlalchemy.orm import Session
 from app.models.user import User, UserRole
 from app.core.security import get_password_hash
+from app.core.settings import settings
 
 
 def init_db(db: Session) -> None:
-    admin_email = os.getenv("FIRST_SUPERUSER_EMAIL", "admin@admin.com")
-    admin_password = os.getenv("FIRST_SUPERUSER_PASSWORD", "admin12345")
+    admin_email = settings.FIRST_SUPERUSER_EMAIL
+    admin_password = settings.FIRST_SUPERUSER_PASSWORD
 
     existing_admin = (db.query(User).filter((User.role == UserRole.ADMIN) | (User.is_admin == True)).first())
     if not existing_admin:

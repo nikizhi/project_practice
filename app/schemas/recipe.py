@@ -1,5 +1,5 @@
 from typing import List, Optional
-from pydantic import BaseModel, ConfigDict, Field, PositiveInt, PositiveFloat
+from pydantic import BaseModel, ConfigDict, Field
 from app.schemas.ingredient import IngredientResponse
 
 class RecipeIngredientCreate(BaseModel):
@@ -19,8 +19,6 @@ class RecipeFilter(BaseModel):
 
     q: Optional[str] = Field(None, description="Поиск по названию или описанию")
     max_cooking_time: Optional[int] = Field(None, ge=1, description="Макс. время готовки (минуты)")
-    min_calories: Optional[float] = Field(None, ge=0, description="Мин. калории")
-    max_calories: Optional[float] = Field(None, ge=0, description="Макс. калории")
 
 class IngredientBase(BaseModel):
     id: int
@@ -42,7 +40,6 @@ class RecipeResponse(BaseModel):
     description: Optional[str] = None
     instructions: str
     cooking_time_minutes: int
-    calories: Optional[float] = None
     ingredients: List[RecipeIngredientResponse] = []
 
     model_config = ConfigDict(from_attributes=True)

@@ -2,8 +2,9 @@ from datetime import datetime, timedelta, timezone
 from typing import Union
 import bcrypt
 from jose import jwt
+from app.core.settings import settings
 
-SECRET_KEY = "YOUR_SUPER_SECRET_KEY_CHANGE_THIS_IN_PRODUCTION"
+SECRET_KEY = settings.SECRET_KEY
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24 * 7
 

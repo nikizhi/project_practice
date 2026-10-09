@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.db import SessionLocal
 from app.core.init_db import init_db
+from app.core.settings import settings
 from app.models.ingredient import Ingredient
 from app.api.auth import router as auth_router
 from app.api.recipes import router as recipes_router
@@ -47,7 +48,7 @@ async def lifespan(app: FastAPI):
     yield
 
 app = FastAPI(
-    title="RecipeGeni API",
+    title=settings.APP_TITLE,
     description="Backend API для конструктора рецептов по остаткам в холодильнике",
     lifespan=lifespan
 )
