@@ -48,8 +48,7 @@ recipe-geni/
 │   ├── core/                 # БД, конфигурация, безопасность, JWT, зависимости
 │   ├── models/               # SQLAlchemy модели БД (Recipe, User, Ingredient, Favorite)
 │   ├── schemas/              # Pydantic схемы для валидации данных
-│   ├── main.py               # Точка входа FastAPI приложения
-│   └── ...
+│   └── main.py               # Точка входа FastAPI приложения
 ├── requirements.txt
 └── README.md
 ```
