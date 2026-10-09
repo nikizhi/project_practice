@@ -10,9 +10,8 @@ class Recipe(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
     title: Mapped[str] = mapped_column(String(150), nullable=False, index=True)
     description: Mapped[str] = mapped_column(Text, nullable=True)
-    instructions: Mapped[str] = mapped_column(Text, nullable=False)  # Пошаговая инструкция
+    instructions: Mapped[str] = mapped_column(Text, nullable=False)
     cooking_time_minutes: Mapped[int] = mapped_column(Integer, nullable=False, default=15)
-    calories: Mapped[float] = mapped_column(Float, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=lambda: datetime.now(timezone.utc))
 
     ingredients: Mapped[List["RecipeIngredient"]] = relationship("RecipeIngredient", back_populates="recipe", cascade="all, delete-orphan")

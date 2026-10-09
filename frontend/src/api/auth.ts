@@ -1,7 +1,7 @@
 import { apiClient } from './client';
 import type { User } from '../types/user';
 
-const AUTH_URL = 'http://127.0.0.1:8000/api/auth';
+const AUTH_URL = '/api/auth';
 
 export interface AuthResponse {
   access_token: string;

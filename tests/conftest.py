@@ -57,8 +57,8 @@ def admin_auth_headers(client, db):
     from app.core.security import get_password_hash
 
     admin = User(
-        email="admin_test@example.com",
-        hashed_password=get_password_hash("admin123"),
+        email="admin@example.com",
+        hashed_password=get_password_hash("admin12345"),
         role=UserRole.ADMIN,
         is_admin=True,
         is_active=True

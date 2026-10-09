@@ -57,7 +57,6 @@ def create_recipe(
             description=recipe_in.description,
             instructions=recipe_in.instructions,
             cooking_time_minutes=recipe_in.cooking_time_minutes,
-            calories=getattr(recipe_in, 'calories', None)
         )
         db.add(new_recipe)
         db.flush()
